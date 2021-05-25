@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script src="scripts/main.js"></script>
+	<script src="scripts/groceries.js"></script>
+	<title>SEG3125_lab2_</title>
+</head>
+
+<body>
+<h1>Welcome to Grocery Store</h1> 
+<h2>-- your best selection for online shopping</h2>
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Client')"><h4>Client</h4></button>
+  <button class="tablinks" onclick="openInfo(event, 'Products')"><h4>Products</h4></button>
+  <button class="tablinks" onclick="openInfo(event, 'Cart')"><h4>Cart</h4></button>
+</div>
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Client Information</h3>
+  <p>Be careful!</p>
+  <p>We will hide products that do not belong to your personal preferences, </p>
+  <p>which will help you filter out products you do not like, but if you want to know all the products, please choose "None" .</p>
+  Choose your shopping preference:
+	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+	<option value=""></option>
+	<option value="lactose_intolerance">lactose_intolerance</option>
+	<option value="lactose_intolerance_and_organic">lactose_intolerance_and_organic</option>
+    <option value="nut_allergies">nut_allergies</option>
+    <option value="nut_allergies_and_organic">nut_allergies_and_organic</option>
+    <option value="lactose_intolerance_and_nut_allergies">lactose_intolerance_and_nut_allergies</option>
+    <option value="lactose_intolerance_and_nut_allergies_and_organic">lactose_intolerance_and_nut_allergies_and_organic</option>
+    <option value="None">None</option>
+    <option value="None_and_organic">None_and_organic</option>
+	</select>
+	<br>
+	<button class="tablinks" onclick="openInfo(event, 'Products')">Go select my products</button>
+</div>
+
+<div id="Products" class="tabcontent">
+  <h3>Your targeted products</h3>
+  <p>We preselected products based on your restrictions.</p>
+	 Choose items to buy:
+	 <div id="displayProduct"></div>
+	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		Add selected items to cart
+	</button>
+	<button class="tablinks" onclick="openInfo(event, 'Client')">Change my preference</button>
+	<button class="tablinks" onclick="openInfo(event, 'Cart')">Check my Cart</button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+  <button class="tablinks" onclick="openInfo(event, 'Products')">re-select my products</button>
+</div>
+
+
+</body>
+<p id="signature">Site created by cj</p>
+</html>
